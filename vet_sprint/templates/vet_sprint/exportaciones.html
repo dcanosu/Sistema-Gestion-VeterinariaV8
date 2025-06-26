@@ -1,0 +1,24 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Exportaciones{% endblock %}
+
+{% block content %}
+    <h2>Exportaciones</h2>
+    <p>En esta sección puedes exportar los datos de tu veterinaria a diferentes formatos.</p>
+
+    <h3>Opciones de Exportación</h3>
+    
+    {% if mascotas or propietarios %}
+        <ul>
+            {% if mascotas %}
+                <li><a href="{% url 'exportar_mascotas_csv' %}">Exportar Mascotas a CSV</a></li>
+            {% endif %}
+            {% if propietarios %}
+                <li><a href="{% url 'exportar_propietarios_csv' %}">Exportar Propietarios a CSV</a></li>
+            {% endif %}
+        </ul>
+    {% else %}
+        <p>No hay datos disponibles para exportar.</p>
+    {% endif %}
+
+{% endblock %}

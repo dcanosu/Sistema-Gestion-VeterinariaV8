@@ -1,0 +1,40 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Gestión de Cirugias{% endblock %}
+
+{% block content %}
+    <h2>Gestión de Cirugías</h2>
+    <a href="{% url 'cirugia_create' %}" class="button-add">Registrar Nueva Cirugía</a>
+
+    {% if cirugias %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Mascota</th>
+                    <th>Propietario</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cirugia in cirugias %}
+                    <tr>
+                        <td>{{ cirugia.id }}</td>
+                        <td>{{ cirugia.fecha|date:"d/m/Y" }}</td>
+                        <td>{{ cirugia.mascota.nombre }} ({{ cirugia.mascota.especie }})</td>
+                        <td>{{ cirugia.mascota.propietario.nombre }}</td>
+                        <td>{{ cirugia.descripcion|truncatechars:50 }}</td>
+                        <td>
+                            <a href="{% url 'cirugia_update' cirugia.pk %}" class="button-edit">Editar</a>
+                            <a href="{% url 'cirugia_delete' cirugia.pk %}" class="button-delete">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay cirugías registradas todavía.</p>
+    {% endif %}
+{% endblock %}

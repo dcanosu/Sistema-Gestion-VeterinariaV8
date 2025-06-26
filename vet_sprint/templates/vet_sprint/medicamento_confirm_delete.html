@@ -1,0 +1,13 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Eliminar Medicamento{% endblock %}
+
+{% block content %}
+    <h2>Eliminar Medicamento</h2>
+    <p>¿Estás seguro de que quieres eliminar el medicamento **{{ medicamento.nombre }}**?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="button-delete">Sí, Eliminar</button>
+        <a href="{% url 'medicamentos_list' %}" class="button">Cancelar</a>
+    </form>
+{% endblock %}

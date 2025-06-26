@@ -1,0 +1,42 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Gestión de Citas{% endblock %}
+
+{% block content %}
+    <h2>Gestión de Citas</h2>
+    <a href="{% url 'cita_create' %}" class="button-add">Agendar Nueva Cita</a>
+
+    {% if citas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Mascota</th>
+                    <th>Propietario</th>
+                    <th>Motivo</th>
+                    <th>Diagnóstico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in citas %}
+                    <tr>
+                        <td>{{ cita.id }}</td>
+                        <td>{{ cita.fecha|date:"d/m/Y" }}</td> {# Formato de fecha legible #}
+                        <td>{{ cita.mascota.nombre }} ({{ cita.mascota.especie }})</td>
+                        <td>{{ cita.mascota.propietario.nombre }}</td> {# Acceso encadenado #}
+                        <td>{{ cita.motivo|truncatechars:50 }}</td> {# Trunca el texto si es muy largo #}
+                        <td>{{ cita.diagnostico|default:"Pendiente"|truncatechars:50 }}</td> {# Muestra "Pendiente" si no hay diagnóstico #}
+                        <td>
+                            <a href="{% url 'cita_update' cita.pk %}" class="button-edit">Editar</a>
+                            <a href="{% url 'cita_delete' cita.pk %}" class="button-delete">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay citas agendadas todavía.</p>
+    {% endif %}
+{% endblock %}

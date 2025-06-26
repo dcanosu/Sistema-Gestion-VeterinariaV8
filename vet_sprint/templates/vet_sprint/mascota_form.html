@@ -1,0 +1,13 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}{{ accion }} Mascota{% endblock %}
+
+{% block content %}
+    <h2>{{ accion }} Mascota</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="button">{{ accion }}</button>
+        <a href="{% url 'mascotas_list' %}" class="button">Cancelar</a>
+    </form>
+{% endblock %}

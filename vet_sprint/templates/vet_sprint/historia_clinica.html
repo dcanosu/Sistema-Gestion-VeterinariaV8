@@ -1,0 +1,77 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Historia Clínica de {{ mascota.nombre }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-4">Historia Clínica de {{ mascota.nombre }}</h2>
+        <p><strong>Propietario:</strong> {{ mascota.propietario.nombre }}</p>
+        <p><strong>Especie:</strong> {{ mascota.especie }}</p>
+        <p><strong>Raza:</strong> {{ mascota.raza|default:"N/A" }}</p>
+        <p><strong>Edad:</strong> {{ mascota.edad }} años</p>
+
+        <hr>
+
+        <h3>Bitácoras de Consulta</h3>
+        {% if bitacoras %}
+            <div class="accordion" id="bitacorasAccordion">
+                {% for bitacora in bitacoras %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingBitacora{{ forloop.counter }}">
+                            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBitacora{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapseBitacora{{ forloop.counter }}">
+                                Consulta del {{ bitacora.fecha_consulta|date:"d/m/Y" }} (Veterinario: {{ bitacora.veterinario|default:"N/A" }})
+                            </button>
+                        </h2>
+                        <div id="collapseBitacora{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="headingBitacora{{ forloop.counter }}" data-bs-parent="#bitacorasAccordion">
+                            <div class="accordion-body">
+                                <p><strong>Observaciones:</strong> {{ bitacora.observaciones }}</p>
+                                <p><strong>Diagnóstico:</strong> {{ bitacora.diagnostico|default:"No registrado" }}</p>
+                                <p><strong>Tratamiento:</strong> {{ bitacora.tratamiento|default:"No registrado" }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No hay bitácoras de consulta registradas.</p>
+        {% endif %}
+
+        <hr>
+
+        <h3>Citas Registradas</h3>
+        {% if citas %}
+            <ul class="list-group mb-3">
+                {% for cita in citas %}
+                    <li class="list-group-item">
+                        <strong>Fecha:</strong> {{ cita.fecha|date:"d/m/Y" }}<br>
+                        <strong>Motivo:</strong> {{ cita.motivo }}<br>
+                        <strong>Diagnóstico:</strong> {{ cita.diagnostico|default:"N/A" }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay citas registradas para esta mascota.</p>
+        {% endif %}
+
+        <hr>
+
+        <h3>Cirugías Realizadas</h3>
+        {% if cirugias %}
+            <ul class="list-group">
+                {% for cirugia in cirugias %}
+                    <li class="list-group-item">
+                        <strong>Fecha:</strong> {{ cirugia.fecha|date:"d/m/Y" }}<br>
+                        <strong>Descripción:</strong> {{ cirugia.descripcion }}<br>
+                        <strong>Veterinario:</strong> {{ cirugia.veterinario|default:"N/A" }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay cirugías registradas para esta mascota.</p>
+        {% endif %}
+
+        <hr>
+        <a href="{% url 'bitacoras_list' mascota.pk %}" class="btn btn-secondary mt-3">Volver a Bitácoras</a>
+        <a href="{% url 'mascotas_list' %}" class="btn btn-info mt-3 ms-2">Volver a Listado de Mascotas</a>
+    </div>
+{% endblock %}

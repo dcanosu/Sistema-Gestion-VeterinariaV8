@@ -1,0 +1,34 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Bitácoras de {{ mascota.nombre }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-4">Bitácoras de Consulta para {{ mascota.nombre }} ({{ mascota.especie }})</h2>
+        <p>Propietario: {{ mascota.propietario.nombre }}</p>
+
+        <a href="{% url 'bitacora_create' mascota.pk %}" class="btn btn-primary mb-3">Registrar Nueva Bitácora</a>
+        <a href="{% url 'historia_clinica' mascota.pk %}" class="btn btn-info mb-3 ms-2">Ver Historia Clínica Completa</a>
+        <a href="{% url 'mascotas_list' %}" class="btn btn-secondary mb-3 ms-2">Volver a Mascotas</a>
+
+
+        {% if bitacoras %}
+            <ul class="list-group">
+                {% for bitacora in bitacoras %}
+                    <li class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Consulta del {{ bitacora.fecha_consulta|date:"d/m/Y" }}</h5>
+                            <small>Veterinario: {{ bitacora.veterinario|default:"N/A" }}</small>
+                        </div>
+                        <p class="mb-1"><strong>Observaciones:</strong> {{ bitacora.observaciones|truncatechars:100 }}</p>
+                        <a href="{% url 'bitacora_detail' mascota.pk bitacora.pk %}" class="btn btn-sm btn-info">Ver Detalle</a>
+                        <a href="{% url 'bitacora_update' mascota.pk bitacora.pk %}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{% url 'bitacora_delete' mascota.pk bitacora.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay bitácoras de consulta registradas para esta mascota.</p>
+        {% endif %}
+    </div>
+{% endblock %}

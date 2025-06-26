@@ -1,0 +1,13 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Eliminar Mascota{% endblock %}
+
+{% block content %}
+    <h2>Eliminar Mascota</h2>
+    <p>¿Estás seguro de que quieres eliminar a la mascota **{{ mascota.nombre }} ({{ mascota.especie }})**?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="button-delete">Sí, Eliminar</button>
+        <a href="{% url 'mascotas_list' %}" class="button">Cancelar</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Clínica Veterinaria{% endblock %}</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+            background-color: #f4f4f4; 
+            color: #333; 
+            line-height: 1.6; 
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 10px; background-color: #024f97; border-radius: 0px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1, h2, h3 { color: #024f97; }
+        nav { background-color: #e9ecef; padding: 10px 20px; border-radius: 5px; margin-bottom: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; color: #024f97; font-weight: bold; }
+        nav a:hover { text-decoration: underline; }
+        a { margin-right: 15px; text-decoration: none; color: #024f97; font-weight: bold; }
+        a:hover { text-decoration: underline; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .button, .button-add { display: inline-block; padding: 8px 15px; background-color: #024f97; color: white; text-decoration: none; border-radius: 5px; margin-right: 5px; }
+        .button-delete { background-color: #ffffff; color: #dc3545; }
+        .button-edit { background-color: #ffffff}
+        .button:hover, .button-add:hover, .button-delete:hover, .button-edit:hover { opacity: 0.9; }
+        form { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-top: 20px; }
+        form p { margin-bottom: 10px; }
+        form label { display: block; margin-bottom: 5px; font-weight: bold; }
+        form input[type="text"],
+        form input[type="number"],
+        form input[type="date"],
+        form textarea,
+        form select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        form button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .message { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+    </style>
+</head>
+
+<body style="background-color: #ffffff;">
+<header style="background-color: #024f97; padding: 10px 0; color: white;">
+    <img src="{% static 'img/logo.jpg' %}" alt="logo" width="130" style="margin-left: 20px; margin-top: 10px;">
+    <div class="container">
+        <nav>
+            <a href="{% url 'home' %}">Inicio</a>
+            <a href="{% url 'services' %}">Servicios</a>
+            <a href="{% url 'propietarios_list' %}">Propietarios</a>
+            <a href="{% url 'mascotas_list' %}">Mascotas</a>
+            <a href="{% url 'citas_list' %}">Citas</a>
+            <a href="{% url 'medicamentos_list' %}">Medicamentos</a>
+            <a href="{% url 'cirugias_list' %}">Cirugias</a>
+            <a href="{% url 'ver_exportaciones' %}">Exportaciones</a>
+        </nav>
+    </div>
+</header>
+        {% block content %}
+        {% endblock %}
+
+
+    <footer style="text-align: center; padding: 20px; background-color:#024f97; color: #ffffff; margin-top: 50px; border-top: 1px solid #ccc;">
+        <p>&copy; 2025 Clínica Veterinaria - Todos los derechos reservados.</p>
+        <p>Desarrollado por Pythonicos</p>
+    </footer>
+</body>
+</html>

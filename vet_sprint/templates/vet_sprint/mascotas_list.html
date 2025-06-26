@@ -1,0 +1,47 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}Gestión de Mascotas{% endblock %}
+
+{% block content %}
+    <h2>Gestión de Mascotas</h2>
+    <a href="{% url 'mascota_create' %}" class="button-add">Añadir Nueva Mascota</a>
+
+    {% if mascotas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Especie</th>
+                    <th>Raza</th>
+                    <th>Edad</th>
+                    <th>Propietario</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mascota in mascotas %}
+                    <tr>
+                        <td>{{ mascota.id }}</td>
+                        <td>{{ mascota.nombre }}</td>
+                        <td>{{ mascota.especie }}</td>
+                        <td>{{ mascota.raza|default:"N/A" }}</td> {# Muestra "N/A" si la raza no está definida #}
+                        <td>{{ mascota.edad }}</td>
+                        <td>{{ mascota.propietario.nombre }}</td> {# Accedemos al nombre del propietario relacionado #}
+                        <td>
+                            <a href="{% url 'mascota_update' mascota.pk %}" class="button-edit">Editar</a>
+                            <a href="{% url 'mascota_delete' mascota.pk %}" class="button-delete">Eliminar</a>
+                        
+                        <br>
+                    <a href="{% url 'bitacoras_list' mascota.pk %}" class="button-action">Bitácoras</a>
+<a href="{% url 'historia_clinica' mascota.pk %}" class="button-action">Historia Clínica</a>
+                        
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay mascotas registradas todavía.</p>
+    {% endif %}
+{% endblock %}

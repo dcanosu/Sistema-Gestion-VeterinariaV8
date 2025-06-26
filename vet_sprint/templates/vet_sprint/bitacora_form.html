@@ -1,0 +1,15 @@
+{% extends 'vet_sprint/base.html' %}
+
+{% block title %}{{ accion }} Bitácora para {{ mascota.nombre }}{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-4">{{ accion }} Bitácora de Consulta para {{ mascota.nombre }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">{{ accion }} Bitácora</button>
+            <a href="{% url 'bitacoras_list' mascota.pk %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+{% endblock %}
