@@ -11,10 +11,14 @@
     {% if mascotas or propietarios %}
         <ul>
             {% if mascotas %}
-                <li><a href="{% url 'exportar_mascotas_csv' %}">Exportar Mascotas a CSV</a></li>
+                <a href="{% url 'exportar_mascotas_csv' %}" class="export-link">
+                <i class="fas fa-file-csv"></i> Exportar Mascotas a CSV
+                </a>
             {% endif %}
             {% if propietarios %}
-                <li><a href="{% url 'exportar_propietarios_csv' %}">Exportar Propietarios a CSV</a></li>
+                <a href="{% url 'exportar_propietarios_csv' %}" class="export-link">
+                <i class="fas fa-file-csv"></i> Exportar Propietarios a CSV
+                </a>
             {% endif %}
         </ul>
     {% else %}

@@ -24,7 +24,7 @@
                         <td>{{ medicamento.id }}</td>
                         <td>{{ medicamento.nombre }}</td>
                         <td>{{ medicamento.descripcion|truncatechars:50 }}</td>
-                        <td>${{ medicamento.cantidad }}</td>
+                        <td>{{ medicamento.cantidad }}</td>
                         <td>
                             <a href="{% url 'medicamento_update' medicamento.pk %}" class="button-edit">Editar</a>
                             <a href="{% url 'medicamento_delete' medicamento.pk %}" class="button-delete">Eliminar</a>
