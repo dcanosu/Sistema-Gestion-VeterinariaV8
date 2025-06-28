@@ -24,3 +24,8 @@ Código fuente organizado claramente en un repositorio Git.
 Archivo requirements.txt actualizado con dependencias nuevas.
 Archivo README.md detallando claramente cómo ejecutar y validar cada una de las funcionalidades implementadas.
 Demostración en video (de máximo 10 minutos) del funcionamiento de la aplicación.
+
+## Integrantes
+- Daniel Cano Suarez
+- Miguel Cerquera Arias
+- Esteban Eusse Munera
