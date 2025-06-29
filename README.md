@@ -57,10 +57,6 @@ python manage.py createsuperuser
 
 # Ejecutar el servidor
 python manage.py runserver
-## Integrantes
-- Daniel Cano Suarez
-- Miguel Cerquera Arias
-- Esteban Eusse Munera
 ```
 
 ## 🖥️ Integrantes
