@@ -1,5 +1,5 @@
 ![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
-![PyPI - Versions from Framework Classifiers](https://img.shields.io/pypi/frameworkversions/:frameworkName/:packageName)
+![PyPI](https://img.shields.io/pypi/frameworkversions/:frameworkName/:packageName)
 
 
 # Sistema-Gestion-VeterinariaV8
