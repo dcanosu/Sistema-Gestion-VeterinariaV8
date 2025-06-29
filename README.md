@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![Django](https://img.shields.io/badge/django-3.2+-green.svg)
-![License](https://img.shields.io/github/license/dcanosu/Sistema-Gestion-VeterinariaV8)
+![License](https://img.shields.io/github/LICENSE/dcanosu/Sistema-Gestion-VeterinariaV8)
 ![Last Commit](https://img.shields.io/github/last-commit/dcanosu/Sistema-Gestion-VeterinariaV8)
 ![Issues](https://img.shields.io/github/issues/dcanosu/Sistema-Gestion-VeterinariaV8)
 ![Virtual Env](https://img.shields.io/badge/virtualenv-enabled-brightgreen)
