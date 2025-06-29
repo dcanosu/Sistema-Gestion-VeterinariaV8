@@ -6,7 +6,6 @@
 ![Last Commit](https://img.shields.io/github/last-commit/dcanosu/Sistema-Gestion-VeterinariaV8)
 ![Issues](https://img.shields.io/github/issues/dcanosu/Sistema-Gestion-VeterinariaV8)
 ![Virtual Env](https://img.shields.io/badge/virtualenv-enabled-brightgreen)
-
 [![Requirements](https://img.shields.io/badge/requirements-txt-yellow)](./requirements.txt)
 
 
