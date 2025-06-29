@@ -1,5 +1,8 @@
-![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
-![PyPI](https://img.shields.io/pypi/frameworkversions/:frameworkName/:packageName)
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Django](https://img.shields.io/badge/django-3.2+-green.svg)
+![License](https://img.shields.io/github/license/dcanosu/https://github.com/dcanosu/Sistema-Gestion-VeterinariaV8)
+![Last Commit](https://img.shields.io/github/last-commit/dcanosu/https://github.com/dcanosu/Sistema-Gestion-VeterinariaV8/edit/main/README.md)
+![Issues](https://img.shields.io/github/issues/dcanosu/https://github.com/dcanosu/Sistema-Gestion-VeterinariaV8/edit/main/README.md)
 
 
 # Sistema-Gestion-VeterinariaV8
