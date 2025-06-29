@@ -1,3 +1,5 @@
+![Python](https://img.shields.io/badge/python-v3.8+-blue.svg)
+
 # Sistema-Gestion-VeterinariaV8
 # Sprint 13: Funcionalidades Avanzadas para la Clínica Veterinaria
 
